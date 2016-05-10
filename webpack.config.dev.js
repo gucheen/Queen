@@ -11,7 +11,7 @@ module.exports = {
     ],
     lib: [
       'webpack/hot/dev-server',
-      path.resolve(__dirname, 'lib', 'main.ts')
+      path.resolve(__dirname, 'lib', 'App.ts')
     ]
   },
   output: {

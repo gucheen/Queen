@@ -6,8 +6,7 @@ var path = require('path');
 module.exports = {
   entry: {
     lib: [
-      'webpack/hot/dev-server',
-      path.resolve(__dirname, 'lib', 'main.ts')
+      path.resolve(__dirname, 'lib', 'App.ts')
     ]
   },
   output: {
@@ -22,6 +21,5 @@ module.exports = {
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' }
     ]
   },
-  devtool: 'source-map',
-  debug: true
+  devtool: 'source-map'
 };
