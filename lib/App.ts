@@ -1,27 +1,35 @@
-/**
- * Created by gucheng on 5/9/16.
- */
-console.log('Queen');
+import { TextureLibrary } from './Textures/Textures';
+import { CardsLibrary } from './Cards/Cards';
 
 interface QueenProps {
   container?: HTMLElement
+  appTitle?: string
 }
 
 interface QueenApp {
-  name: string,
   init: () => void
 }
 
 class Queen implements QueenApp {
-  name = 'Queen';
   rootNode: HTMLElement;
   drawer: HTMLCanvasElement;
+
+  Textures: TextureLibrary = new TextureLibrary({
+    stage: this.rootNode
+  });
+  Cards: CardsLibrary = new CardsLibrary({
+    stage: this.rootNode
+  });
+
+  private name = 'Queen';
   private context: CanvasRenderingContext2D;
 
   constructor(options: QueenProps = {
-    container: document.body
+    container: document.body,
+    appTitle: 'Queen Cards'
   }) {
     this.rootNode = options.container;
+    this.name = options.appTitle;
   }
 
   init() {
@@ -37,7 +45,7 @@ class Queen implements QueenApp {
 
   createTitle() {
     this.context.font = '48px serif';
-    this.context.fillText('Queen Cards', 10, 50);
+    this.context.fillText(this.name, 10, 50);
 
     this.context.font = '24px serif';
     this.context.fillText('Game Engine for card game', 10, 90);

@@ -1,34 +1,29 @@
-interface textureProps {
-  type: string,
-  location: string
-}
+import { TextureProps } from '../Textures/Textures';
 
-interface cardProps {
+export interface CardProps {
   name: string,
   description: string,
-  texture?: textureProps
+  texture?: string
 }
 
-class Card {
-  type = 'card';
-  name: string;
-  description: string;
+export class Card {
+  private type = 'card';
+  private name: string;
+  private description: string;
   private texture;
 
-  constructor(props: cardProps) {
+  constructor(props: CardProps) {
     this.name = props.name;
     this.description = props.description;
-    this.texture = this.texture;
+    this.texture = props.texture;
   }
 
   getTexture() {
     return this.texture;
   }
 
-  setTexture(texture: textureProps) {
+  setTexture(texture: TextureProps) {
     this.texture = texture;
     return this.texture;
   }
 }
-
-export default Card;
